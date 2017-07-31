@@ -29,6 +29,6 @@ defmodule Todo.Server do
 
   def handle_call({:entries, date}, _caller, {name, state}) do
     todo_list = Todo.Database.get(name)
-    {:reply, Todo.List.entries(todo_list, date), state}
+    {:reply, Todo.List.entries(todo_list, date), {name, state}}
   end
 end
