@@ -18,7 +18,7 @@ defmodule Todo.Server do
   # Server
 
   def init(name) do
-    {:ok, {name, Todo.Database.get(name) || Todo.List.new}}
+    {:ok, {name, Todo.List.new}}
   end
 
   def handle_cast({:add_entry, new_entry}, {name, todo_list}) do
